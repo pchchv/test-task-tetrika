@@ -6,11 +6,19 @@
 
 
 def task_string(string):
+    if string[0] == '0':
+        return 'Строка состит только из нулей'
+    if string[-1] == '1':
+        return 'Строка состит только из единиц'
     index = string.find('10')
     return index + 1
 
 
 def task_array(array):
+    if array[0] == 0:
+        return 'Массив состит только из нулей'
+    if array[-1] == 1:
+        return 'Массив состит только из единиц'
     i = 0
     j = len(array) - 1
     k = (j - i) // 2  # средний элемент массива
@@ -35,3 +43,7 @@ def task_array(array):
 
 print(task_string('111111111111111111111111100000000'))
 print(task_array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]))
+print(task_string('00000000'))
+print(task_array([0, 0, 0, 0, 0, 0, 0, 0]))
+print(task_string('1111111111111111111111111'))
+print(task_array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))
