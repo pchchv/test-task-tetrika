@@ -9,6 +9,7 @@ def appearance(intervals):
     """
     events = []
     for time in intervals.values():
+        time.sort()
         for j in range(len(time)):
             if j % 2 != 0:
                 ev = -1
@@ -20,12 +21,13 @@ def appearance(intervals):
     start = 0
     elapsed_time = 0
     for event in events:
+        if count < 3:
+            start = event[0]
         count += event[1]
         if count == 3:
             start = event[0]
         if count < 3 and start > 0:
             elapsed_time += event[0] - start
-            start = 0
     return elapsed_time
 
 
