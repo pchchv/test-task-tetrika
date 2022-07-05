@@ -21,3 +21,19 @@ def get_data():
                 else:
                     letters[first_letter] = count + 1
     return letters
+
+
+def task():
+    """Получить с русской википедии список всех животных (https://inlnk.ru/jElywR),
+    вывести количество животных на каждую букву алфавита.
+    Результат должен получиться в следующем виде:
+    А: 642
+    Б: 412
+    В:....
+    """
+    letters = get_data()
+    for animal, count in letters.items:
+        print(animal + ':', count)
+
+
+task()
