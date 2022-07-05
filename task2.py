@@ -15,12 +15,13 @@ def get_data():
                 page = requests.get(url).text
             elif animal.text != 'Предыдущая страница':
                 first_letter = animal.text[0]  # Первая буква названия животного
+                if first_letter == 'A':
+                    return letters
                 count = letters.setdefault(first_letter, 0)
                 if count == 0:
                     letters[first_letter] = 1
                 else:
                     letters[first_letter] = count + 1
-    return letters
 
 
 def task():
@@ -32,7 +33,7 @@ def task():
     В:....
     """
     letters = get_data()
-    for animal, count in letters.items:
+    for animal, count in letters.items():
         print(animal + ':', count)
 
 
