@@ -7,15 +7,14 @@ def appearance(intervals):
     Под четными индексами (начиная с 0) время входа на урок, под нечетными - время выхода с урока.
     Ожидаемый результат работы функции – время общего присутствия ученика и учителя на уроке (в секундах).
     """
-    events = []
-    for time in intervals.values():
-        time.sort()
-        for j in range(len(time)):
+    events: list[tuple[Any, int]] = []
+    for times in intervals.values():
+        for j in range(len(times)):
             if j % 2 != 0:
                 ev = -1
             else:
                 ev = 1
-            events.append((time[j], ev))
+            events.append((times[j], ev))
     events.sort()
     count = 0
     start = 0
